@@ -1,0 +1,393 @@
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: 'Special Elite', cursive;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    margin: 1em;
+}
+
+button:focus,
+button:active {
+    outline: none;
+}
+
+.container {
+    width: 70%;
+    height: auto;
+    margin: 1em auto;
+    border: 2px solid #000;
+}
+
+#stripe {
+    width: 100%;
+}
+
+#stripe h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#instructions {
+    text-align: center;
+    font-size: 0.9em;
+    border-bottom: 2px solid #000;
+}
+
+#instructions p {
+    margin: 0.5em 0 0;
+    transition: opacity 1s;
+}
+
+#instructions p:nth-child(2),
+#instructions p:nth-child(3) {
+    margin-bottom: 2em;
+}
+
+.game-container {
+    display: flex;
+}
+
+#overview {
+    width: 35%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 2px solid #000;
+}
+
+#overview h3 {
+    text-align: center;
+    margin: 1.5em 0 2em;
+}
+
+#overview ul {
+    margin-left: 2em;
+}
+
+#overview span {
+    padding-left: 1em;
+}
+
+#overview select {
+    font-size: 0.9em;
+    margin-left: 1em;
+    font-family: 'Special Elite', cursive;
+    outline: none;
+    border: none;
+    width: 6em;
+}
+
+#overview option {
+    outline:  0px;
+    border: 0px;
+}
+
+#ready-game,
+#start-game,
+#submit-btn,
+#next-btn,
+#repeat-btn,
+#quit-btn  {
+    display: none;
+    margin: 2em auto;
+    padding: 0.7em 0.5em 0.2em;
+    background: #eee;
+    font-size: 1em;
+    font-family: 'Special Elite', cursive;
+    box-shadow: 3px 3px 2px rgb(221, 220, 220);
+    border: none;
+    border-radius: 2px;
+    transition: opacity 0.4s;
+}
+
+#start-game,
+#next-btn {
+    background-color: rgb(205, 230, 200);
+}
+
+#quit-btn,
+#repeat-btn {
+    background-color: rgb(236, 203, 203);
+}
+
+#quit-btn {
+    margin: 1.5em auto;
+}
+
+#ready-game:hover,
+#start-game:hover,
+#submit-btn:hover,
+#next-btn:hover,
+#repeat-btn:hover,
+#quit-btn:hover   {
+    box-shadow: 2px 2px 1px rgb(221, 220, 220);
+}
+
+#ready-game.displayed,
+#start-game.displayed,
+#submit-btn.displayed,
+#next-btn.displayed,
+#repeat-btn.displayed,
+#quit-btn.displayed  {
+    display: block;
+}
+
+.song-overview {
+    border-top: 2px solid #000;
+}
+
+.yt-video {
+    width: 70%;
+    margin: 1em auto;
+    opacity: 0.8;
+}
+
+.yt-video iframe {
+    width: 100%;
+    height: auto;
+}
+
+#artist,
+#title {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#juggled-lyrics {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#guide {
+    display: block;
+    text-align: center;
+    margin: 1.5em 0 1em;
+    transition: opacity 1s;
+}
+
+.dragzone {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.chosen {
+    color: rgb(184, 121, 121);
+}
+
+.chunk {
+    width: 95%;
+    background-color: #eee;
+    margin: 1em 0;
+    padding: 1em;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.chunk p {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+.chunk:hover {
+    opacity: 0.4;
+}
+
+.chunk.cover {
+    animation: coverIt 0.5s ease-out forwards;
+}
+
+.chunk.uncover {
+    animation: uncoverIt 0.5s ease-in;
+}
+
+.shut-down {
+    display: block;
+    width: 100%;
+    border-top: 2px solid #000;
+}
+
+.game-overview p {
+    transition: opacity 0.5s;
+}
+
+.winnerStyle,
+.loserStyle,
+.summary {
+    width: 80%;
+    margin: 1em auto 2em;
+    font-size: 1em;
+    text-align: center;
+    opacity: 0;
+}
+.winnerStyle {
+    color: #86A358;
+}
+.loserStyle {
+    color: #ED5C5C;
+}
+.summary {
+    color: #86A358;
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+/* ANIMATIONS */
+
+@keyframes coverIt {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes uncoverIt {
+    0% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1120px ) {
+    .container {
+        width: 85%;
+    }
+}
+
+@media (max-width: 930px ) {
+    .container {
+        width: 95%;
+    }
+    .yt-video {
+        width: 80%;
+    }
+}
+
+@media (max-width: 840px ) {
+    #instructions p {
+        padding: 0 1.2em;
+    }
+    .game-container {
+        font-size: 0.9em;
+    }
+    #overview h3,
+    #guide {
+        font-size: 1.1em;
+        padding: 0 1em;
+        margin: 1.5em 0 0.5em;
+    }
+}
+
+@media (max-width: 758px) {
+    #overview ul {
+        margin-left: 1em;
+    }
+   
+    .yt-video {
+        width: 85%;
+    }
+    .yt-video iframe {
+        height: 80%;
+    }
+}
+
+@media (max-width: 630px) {
+    .game-container {
+        flex-direction: column;
+        flex-wrap: row;
+    }
+    #overview {
+       height: 18em;
+       width: 100%; 
+       flex-direction: row;
+       border-right: none;
+       border-bottom: 2px solid #000;
+    }
+    .game-overview {
+        width: 45%;
+        border-right: 2px solid #000;
+    }
+    .song-overview {
+        width: 55%;
+        border-top: none;
+    }
+    #overview ul {
+        margin-left: 0.5em;
+    }
+    .yt-video {
+        height: 50%;
+        margin-bottom: 0;
+    }
+    #juggled-lyrics {
+        width: 100%;
+    }
+    
+    .winnerStyle,
+    .loserStyle {
+        width: 95%;
+        margin: 0.5em auto 1em;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 465px) {
+    #overview {
+        flex-direction: column;
+        height: auto;
+    }
+    .game-overview, .song-overview {
+        width: 100%;
+        border-right: none;
+    }
+
+    .song-overview {
+        border-top: 2px solid #000;
+    }
+    #overview h3,
+    #guide {
+        margin: 1.5em 0 1em;
+    }
+
+    #overview ul {
+        margin-left: 2em;
+    }
+    #overview li {
+        margin: 0.5em;
+    }
+    .yt-video {
+        width: 75%;
+        height: 8em;
+    }
+}

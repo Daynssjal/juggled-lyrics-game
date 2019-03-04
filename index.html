@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Juggled Lyrics</title>
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="stripe">
+            <h2>Juggled Lyrics</h2>
+        </div>
+        <div id="instructions">
+            <p>Like to learn through music? Then play to train your listening skills in English.</p>
+            <p>Listen carefully to the song and reorder the juggled lyrics.</p>
+            <p>Start the game, play the song when you're ready and enjoy the music! :) </p>
+        </div>
+        <div class="game-container">
+            <div id="overview">
+                <div class="game-overview">
+                    <h3>Game Overview</h3>
+                    <ul>
+                        <li>Round:
+                            <span id="roundDisplay"> </span>
+                        </li>
+                        <li>Score:
+                            <span id="scoreDisplay"> </span>
+                        </li>
+                        <li id="selected-genre">Genre:
+                            <select id="genreSelect" name="genre">
+                                <option value="indie" selected>indie</option>
+                                <option value="mixed">mixed</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <button id="ready-game" class="displayed">Ready to play?</button>
+                    <button id="start-game">Start Game</button>
+                    <button id="submit-btn">Check your solution</button>
+                    <button id="repeat-btn">Try Again</button>
+                    <button id="next-btn">Next Song</button>
+                </div>
+                <div class="song-overview">
+                    <h3>Song Overview</h3>
+                    <ul>
+                        <li>Artist:
+                            <span id="artist"></span>
+                        </li>
+                        <li>Song:
+                            <span id="title"></span>
+                        </li>
+                    </ul>
+                    <div class="yt-video">
+                        <iframe src="https://www.youtube.com/embed/_opF2Dn6Fk4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="juggled-lyrics">
+                <h3 id="guide">Practice moving the segments before starting the game.</h3>
+                <div class="dragzone">
+                    <div class="chunk" draggable="true">
+                        <p>
+                            In the end, it's gone, and there's nothing left to do But I'm still not certain just
+                        </p>
+                    </div>
+                    <div class="chunk" draggable="true">
+                        <p>
+                            how I'm gonna feel I only know in the moment And this sensation ain't rolling
+                        </p>
+                    </div>
+                    <div class="chunk" draggable="true">
+                        <p>
+                            It's getting closer, It's getting closer, It's getting closer, It's getting closer (it's right on time
+                        </p>
+                    </div>
+                    <div class="chunk" draggable="true">
+                        <p>
+                            In the end, it's stronger than I know how to be And I can't just spend my whole lifetime wondering  
+                        </p>
+                    </div>
+                    <div class="chunk" draggable="true">
+                        <p>
+                            I fell in love with the sound of my heels on the wooden floor I don't want our footsteps to be silent anymore
+                        </p>
+                    </div>
+                    <div class="chunk" draggable="true">
+                        <p>
+                            Want them to be in the moment Storm clouds are closing in
+                        </p>
+                    </div>
+                </div>
+                <div class="shut-down">
+                    <button id="quit-btn" class="displayed">Quit Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.6.1/Sortable.min.js"></script>
+    <script src="js/songs.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
